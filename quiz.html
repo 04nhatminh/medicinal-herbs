@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Trắc Nghiệm - Dược Liệu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        .quiz-header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .quiz-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .quiz-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .question-image {
+            max-width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .question-text {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option {
+            background: white;
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .option.correct {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+
+        .option:disabled {
+            cursor: not-allowed;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-success {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .result-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .result-title {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .result-score {
+            font-size: 3em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .result-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .result-item-label {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .result-item-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .feedback.correct {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .feedback.incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .quiz-card {
+                padding: 25px;
+            }
+
+            .question-text {
+                font-size: 1.2em;
+            }
+
+            .option {
+                padding: 15px;
+                font-size: 1em;
+            }
+
+            .result-card {
+                padding: 30px 20px;
+            }
+
+            .result-title {
+                font-size: 1.8em;
+            }
+
+            .result-score {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="header-nav">
+        <a href="index.html" class="logo">
+            Học Dược Liệu
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Trang Chủ</a>
+            <a href="flashcard.html" class="nav-link">Flashcard</a>
+            <a href="quiz.html" class="nav-link active">Quiz</a>
+            <a href="matching.html" class="nav-link">Matching</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Quiz Header -->
+        <div class="quiz-header">
+            <h1 class="quiz-title">🎯 Quiz Trắc Nghiệm Dược Liệu</h1>
+            <div class="quiz-stats">
+                <div class="stat-box">
+                    <div class="stat-label">Câu hỏi</div>
+                    <div class="stat-value"><span id="currentQuestion">1</span>/<span id="totalQuestions">20</span></div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Điểm</div>
+                    <div class="stat-value" id="score">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Đúng</div>
+                    <div class="stat-value" id="correct">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Card -->
+        <div class="quiz-card" id="quizCard">
+            <div class="question-number" id="questionNumber">Câu hỏi 1/20</div>
+            <img class="question-image" id="questionImage" src="" alt="Ảnh dược liệu">
+            <div class="question-text" id="questionText">Đây là dược liệu gì?</div>
+            <div class="options" id="options">
+                <!-- Options will be generated here -->
+            </div>
+            <div class="feedback hidden" id="feedback"></div>
+            <div class="controls">
+                <button class="btn btn-primary" id="checkBtn">Kiểm tra</button>
+                <button class="btn btn-success hidden" id="nextBtn">Câu tiếp theo</button>
+            </div>
+        </div>
+
+        <!-- Result Card -->
+        <div class="result-card hidden" id="resultCard">
+            <div class="result-icon" id="resultIcon">🎉</div>
+            <h2 class="result-title">Hoàn thành!</h2>
+            <div class="result-score" id="finalScore">0/20</div>
+            <div class="result-details">
+                <div class="result-item">
+                    <div class="result-item-label">Câu đúng</div>
+                    <div class="result-item-value" id="finalCorrect">0</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-item-label">Câu sai</div>
+                    <div class="result-item-value" id="finalIncorrect">0</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-item-label">Tỷ lệ</div>
+                    <div class="result-item-value" id="finalPercentage">0%</div>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-primary" id="retryBtn">Chơi lại</button>
+                <button class="btn btn-secondary" onclick="window.location.href='index.html'">Về trang chủ</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let duocLieu = [];
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let correctAnswers = 0;
+        let selectedAnswer = null;
+
+        const TOTAL_QUESTIONS = 20;
+        const QUESTION_TYPES = [
+            { type: 'image', question: 'Đây là dược liệu gì?', answerKey: 'ten_viet_nam' },
+            { type: 'name', question: 'Tên khoa học của {name} là gì?', answerKey: 'ten_khoa_hoc' },
+            { type: 'family', question: '{name} thuộc họ thực vật nào?', answerKey: 'ho_thuc_vat' },
+            { type: 'part', question: 'Bộ phận dùng của {name} là gì?', answerKey: 'bo_phan' },
+            { type: 'component', question: 'Thành phần chính của {name} là gì?', answerKey: 'thanh_phan' },
+            { type: 'usage', question: '{name} có công dụng gì?', answerKey: 'cong_dung' }
+        ];
+
+        async function loadData() {
+            try {
+                const response = await fetch('duoc_lieu.json');
+                duocLieu = await response.json();
+                generateQuiz();
+            } catch (error) {
+                console.error('Lỗi khi load dữ liệu:', error);
+                alert('Không thể tải dữ liệu. Vui lòng thử lại!');
+            }
+        }
+
+        function generateQuiz() {
+            quizQuestions = [];
+            const shuffled = [...duocLieu].sort(() => Math.random() - 0.5);
+            
+            for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+                const questionType = QUESTION_TYPES[Math.floor(Math.random() * QUESTION_TYPES.length)];
+                const correctItem = shuffled[i];
+                
+                // Generate wrong answers
+                const wrongAnswers = shuffled
+                    .filter(item => item.stt !== correctItem.stt)
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 3)
+                    .map(item => item[questionType.answerKey]);
+                
+                const allAnswers = [correctItem[questionType.answerKey], ...wrongAnswers]
+                    .sort(() => Math.random() - 0.5);
+                
+                quizQuestions.push({
+                    type: questionType.type,
+                    question: questionType.question.replace('{name}', correctItem.ten_viet_nam),
+                    image: correctItem.image,
+                    correctAnswer: correctItem[questionType.answerKey],
+                    answers: allAnswers,
+                    item: correctItem
+                });
+            }
+            
+            document.getElementById('totalQuestions').textContent = TOTAL_QUESTIONS;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = quizQuestions[currentQuestionIndex];
+            selectedAnswer = null;
+            
+            document.getElementById('questionNumber').textContent = `Câu hỏi ${currentQuestionIndex + 1}/${TOTAL_QUESTIONS}`;
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Show/hide image based on question type
+            const imageEl = document.getElementById('questionImage');
+            if (question.type === 'image') {
+                imageEl.src = question.image;
+                imageEl.style.display = 'block';
+            } else {
+                imageEl.style.display = 'none';
+            }
+            
+            // Generate options
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            question.answers.forEach((answer, index) => {
+                const option = document.createElement('div');
+                option.className = 'option';
+                option.textContent = answer;
+                option.onclick = () => selectOption(option, answer);
+                optionsContainer.appendChild(option);
+            });
+            
+            document.getElementById('feedback').classList.add('hidden');
+            document.getElementById('checkBtn').classList.remove('hidden');
+            document.getElementById('nextBtn').classList.add('hidden');
+            document.getElementById('checkBtn').disabled = true;
+        }
+
+        function selectOption(element, answer) {
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedAnswer = answer;
+            document.getElementById('checkBtn').disabled = false;
+        }
+
+        function checkAnswer() {
+            if (selectedAnswer === null) return;
+            
+            const question = quizQuestions[currentQuestionIndex];
+            const isCorrect = selectedAnswer === question.correctAnswer;
+            const feedback = document.getElementById('feedback');
+            
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.onclick = null;
+                if (opt.textContent === question.correctAnswer) {
+                    opt.classList.add('correct');
+                } else if (opt.textContent === selectedAnswer && !isCorrect) {
+                    opt.classList.add('incorrect');
+                }
+            });
+            
+            if (isCorrect) {
+                score += 5;
+                correctAnswers++;
+                feedback.className = 'feedback correct';
+                feedback.textContent = '✅ Chính xác! ' + question.item.ten_viet_nam + ' - ' + question.item.ten_khoa_hoc;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.textContent = '❌ Sai rồi! Đáp án đúng là: ' + question.correctAnswer;
+            }
+            
+            feedback.classList.remove('hidden');
+            document.getElementById('score').textContent = score;
+            document.getElementById('correct').textContent = correctAnswers;
+            document.getElementById('checkBtn').classList.add('hidden');
+            document.getElementById('nextBtn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex >= TOTAL_QUESTIONS) {
+                showResult();
+            } else {
+                showQuestion();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quizCard').classList.add('hidden');
+            document.getElementById('resultCard').classList.remove('hidden');
+            
+            const percentage = Math.round((correctAnswers / TOTAL_QUESTIONS) * 100);
+            const incorrect = TOTAL_QUESTIONS - correctAnswers;
+            
+            document.getElementById('finalScore').textContent = `${correctAnswers}/${TOTAL_QUESTIONS}`;
+            document.getElementById('finalCorrect').textContent = correctAnswers;
+            document.getElementById('finalIncorrect').textContent = incorrect;
+            document.getElementById('finalPercentage').textContent = percentage + '%';
+            
+            const resultIcon = document.getElementById('resultIcon');
+            if (percentage >= 80) {
+                resultIcon.textContent = '🏆';
+            } else if (percentage >= 60) {
+                resultIcon.textContent = '🎉';
+            } else {
+                resultIcon.textContent = '💪';
+            }
+        }
+
+        function retry() {
+            currentQuestionIndex = 0;
+            score = 0;
+            correctAnswers = 0;
+            selectedAnswer = null;
+            
+            document.getElementById('score').textContent = 0;
+            document.getElementById('correct').textContent = 0;
+            document.getElementById('resultCard').classList.add('hidden');
+            document.getElementById('quizCard').classList.remove('hidden');
+                
+            generateQuiz();
+        }
+
+        document.getElementById('checkBtn').addEventListener('click', checkAnswer);
+        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+        document.getElementById('retryBtn').addEventListener('click', retry);
+
+        loadData();
+    </script>
+</body>
+</html>

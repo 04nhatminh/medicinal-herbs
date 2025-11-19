@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Dược Liệu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.2);
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            color: white;
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .flashcard {
+            position: relative;
+            width: 100%;
+            height: 550px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background: white;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: rotateY(180deg);
+        }
+
+        .card-image {
+            max-width: 400px;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card-hint {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .card-info {
+            width: 100%;
+            text-align: left;
+        }
+
+        .info-row {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 8px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-prev {
+            background: #6c757d;
+            color: white;
+            width: 100px;
+        }
+
+        .btn-flip {
+            background: #667eea;
+            color: white;
+            min-width: 150px;
+        }
+
+        .btn-next {
+            background: #4CAF50;
+            color: white;
+            width: 100px;
+        }
+
+        .btn-shuffle {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .flip-instruction {
+            text-align: center;
+            color: white;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .flashcard {
+                height: 450px;
+            }
+
+            .card-face {
+                padding: 20px;
+            }
+
+            .card-image {
+                max-width: 200px;
+                max-height: 180px;
+            }
+
+            .card-title {
+                font-size: 1.5em;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <nav class="header-nav">
+        <a href="index.html" class="logo">
+            Học Dược Liệu
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Trang Chủ</a>
+            <a href="flashcard.html" class="nav-link active">Flashcard</a>
+            <a href="quiz.html" class="nav-link">Quiz</a>
+            <a href="matching.html" class="nav-link">Matching</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Flashcard Dược Liệu</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">1 / 60</div>
+        </div>
+
+        <div class="card-container">
+            <div class="flashcard" id="flashcard">
+                <div class="card-face card-front">
+                    <img class="card-image" id="cardImage" src="" alt="Ảnh dược liệu">
+                    <div class="card-title" id="cardQuestion">Đây là dược liệu gì?</div>
+                    <div class="card-hint">Nhấn vào thẻ để xem đáp án</div>
+                </div>
+                <div class="card-face card-back">
+                    <div class="card-info" id="cardInfo">
+                        <!-- Thông tin sẽ được load từ JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-prev" id="prevBtn">Trước</button>
+            <button class="btn btn-flip" id="flipBtn">Lật Thẻ</button>
+            <button class="btn btn-next" id="nextBtn">Sau</button>
+        </div>
+        <div class="controls" style="margin-top: 15px;">
+            <button class="btn btn-shuffle" id="shuffleBtn">Xáo Trộn</button>
+        </div>
+
+        <div class="flip-instruction">
+            💡 Mẹo: Nhấn vào thẻ hoặc nút "Lật Thẻ" để xem thông tin chi tiết
+        </div>
+    </div>
+
+    <script>
+        let duocLieu = [];
+        let currentIndex = 0;
+        let isFlipped = false;
+
+        // Load dữ liệu từ JSON
+        async function loadData() {
+            try {
+                const response = await fetch('duoc_lieu.json');
+                duocLieu = await response.json();
+                updateCard();
+            } catch (error) {
+                console.error('Lỗi khi load dữ liệu:', error);
+                alert('Không thể tải dữ liệu dược liệu. Vui lòng kiểm tra file duoc_lieu.json');
+            }
+        }
+
+        // Cập nhật thẻ hiện tại
+        function updateCard() {
+            if (duocLieu.length === 0) return;
+
+            const currentCard = duocLieu[currentIndex];
+            
+            // Cập nhật mặt trước
+            document.getElementById('cardImage').src = currentCard.image;
+            document.getElementById('cardImage').alt = currentCard.ten_viet_nam;
+            
+            // Cập nhật mặt sau
+            document.getElementById('cardInfo').innerHTML = `
+                <div class="info-row">
+                    <div class="info-label">Tên Việt Nam</div>
+                    <div class="info-value">${currentCard.ten_viet_nam}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Tên Khoa Học</div>
+                    <div class="info-value"><em>${currentCard.ten_khoa_hoc}</em></div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Họ Thực Vật</div>
+                    <div class="info-value">${currentCard.ho_thuc_vat}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Bộ Phận Dùng</div>
+                    <div class="info-value">${currentCard.bo_phan}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Thành Phần</div>
+                    <div class="info-value">${currentCard.thanh_phan}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Công Dụng</div>
+                    <div class="info-value">${currentCard.cong_dung}</div>
+                </div>
+            `;
+
+            // Cập nhật progress
+            updateProgress();
+
+            // Reset trạng thái lật
+            if (isFlipped) {
+                flipCard();
+            }
+
+            // Cập nhật trạng thái nút
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex === duocLieu.length - 1;
+        }
+
+        // Cập nhật thanh tiến độ
+        function updateProgress() {
+            const progress = ((currentIndex + 1) / duocLieu.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${currentIndex + 1} / ${duocLieu.length}`;
+        }
+
+        // Lật thẻ
+        function flipCard() {
+            const flashcard = document.getElementById('flashcard');
+            flashcard.classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        }
+
+        // Chuyển thẻ trước
+        function prevCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            }
+        }
+
+        // Chuyển thẻ sau
+        function nextCard() {
+            if (currentIndex < duocLieu.length - 1) {
+                currentIndex++;
+                updateCard();
+            }
+        }
+
+        // Xáo trộn thẻ
+        function shuffleCards() {
+            for (let i = duocLieu.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [duocLieu[i], duocLieu[j]] = [duocLieu[j], duocLieu[i]];
+            }
+            currentIndex = 0;
+            updateCard();
+        }
+
+        // Event listeners
+        document.getElementById('flashcard').addEventListener('click', flipCard);
+        document.getElementById('flipBtn').addEventListener('click', flipCard);
+        document.getElementById('prevBtn').addEventListener('click', prevCard);
+        document.getElementById('nextBtn').addEventListener('click', nextCard);
+        document.getElementById('shuffleBtn').addEventListener('click', shuffleCards);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevCard();
+            if (e.key === 'ArrowRight') nextCard();
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                flipCard();
+            }
+        });
+
+        // Load dữ liệu khi trang được tải
+        loadData();
+    </script>
+</body>
+</html>

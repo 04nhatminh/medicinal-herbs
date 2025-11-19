@@ -1,0 +1,602 @@
+[
+  {
+    "stt": "1",
+    "ten_viet_nam": "Bách hợp",
+    "ten_khoa_hoc": "Lilium brownii",
+    "ho_thuc_vat": "Liliaceae",
+    "bo_phan": "Thân hành",
+    "thanh_phan": "Saponin steroid (brownioside), alkaloid",
+    "cong_dung": "Trị ho khan, ho có đờm.",
+    "image": "images/bach_hop.png"
+  },
+  {
+    "stt": "2",
+    "ten_viet_nam": "Bạch tật lê",
+    "ten_khoa_hoc": "Tribulus terrestris",
+    "ho_thuc_vat": "Zygophillaceae",
+    "bo_phan": "Quả",
+    "thanh_phan": "Saponin (tigogenin), flavonoid",
+    "cong_dung": "Trị nhức đầu, chóng mặt.",
+    "image": "images/bach_tat_le.png"
+  },
+  {
+    "stt": "3",
+    "ten_viet_nam": "Cam thảo",
+    "ten_khoa_hoc": "Glycyrrhiza uralensis",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Rễ, thân rễ",
+    "thanh_phan": "Saponin (glycyrrhizin), flavonoid",
+    "cong_dung": "Chữa cảm, ho mất tiếng.",
+    "image": "images/cam_thao.png"
+  },
+  {
+    "stt": "4",
+    "ten_viet_nam": "Cát cánh",
+    "ten_khoa_hoc": "Platycodon grandiflorus",
+    "ho_thuc_vat": "Campanulaceae",
+    "bo_phan": "Rễ",
+    "thanh_phan": "Saponin triterpene, flavonoid",
+    "cong_dung": "Trị ho ra máu, viêm họng.",
+    "image": "images/cat_canh.png"
+  },
+  {
+    "stt": "5",
+    "ten_viet_nam": "Hà thủ ô trắng",
+    "ten_khoa_hoc": "Streptocaulon juventas",
+    "ho_thuc_vat": "Apocynaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Saponin triterpene, glycoside tim",
+    "cong_dung": "Thanh nhiệt, giải độc, trị cảm sốt.",
+    "image": "images/ha_thu_o_trang.png"
+  },
+  {
+    "stt": "6",
+    "ten_viet_nam": "Hoàng kỳ",
+    "ten_khoa_hoc": "Astragalus propinquus",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Saponin, isoflavonoid",
+    "cong_dung": "Chữa tiểu buốt, viêm thận mạn.",
+    "image": "images/hoang_ky.png"
+  },
+  {
+    "stt": "7",
+    "ten_viet_nam": "Kim anh",
+    "ten_khoa_hoc": "Rosa laevigata",
+    "ho_thuc_vat": "Rosaceae",
+    "bo_phan": "Quả, rễ",
+    "thanh_phan": "Triterpene, flavonoid, vitamin C",
+    "cong_dung": "Cung cấp vitamin C, chữa ho mạn.",
+    "image": "images/kim_anh.png"
+  },
+  {
+    "stt": "8",
+    "ten_viet_nam": "Mạch môn",
+    "ten_khoa_hoc": "Ophiopogon japonicus",
+    "ho_thuc_vat": "Asparagaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Saponin steroid (ophiogenin), acid phenolic",
+    "cong_dung": "Chữa ho khan, viêm họng.",
+    "image": "images/mach_mon.png"
+  },
+  {
+    "stt": "9",
+    "ten_viet_nam": "Ngưu tất (bắc)",
+    "ten_khoa_hoc": "Achyranthes bidentata",
+    "ho_thuc_vat": "Amaranthaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Saponin triterpene, inokosterone",
+    "cong_dung": "Chữa thấp khớp, đau lưng, cao huyết áp.",
+    "image": "images/nguu_tat_bac.png"
+  },
+  {
+    "stt": "10",
+    "ten_viet_nam": "Sài hồ",
+    "ten_khoa_hoc": "Bupleurum chinense",
+    "ho_thuc_vat": "Apiaceae",
+    "bo_phan": "Rễ",
+    "thanh_phan": "Saponin, flavonoid",
+    "cong_dung": "Trị sốt, đau, viêm gan mạn.",
+    "image": "images/sai_ho.png"
+  },
+  {
+    "stt": "11",
+    "ten_viet_nam": "Tam thất",
+    "ten_khoa_hoc": "Panax notoginseng",
+    "ho_thuc_vat": "Araliaceae",
+    "bo_phan": "Rễ củ, nụ hoa",
+    "thanh_phan": "Saponin (ginsenoside), flavonoid",
+    "cong_dung": "Cầm máu, tăng lực, hạ nhiệt.",
+    "image": "images/tam_that.png"
+  },
+  {
+    "stt": "12",
+    "ten_viet_nam": "Thiên môn (đông)",
+    "ten_khoa_hoc": "Asparagus cochinchinensis",
+    "ho_thuc_vat": "Asparagaceae",
+    "bo_phan": "Rễ",
+    "thanh_phan": "Saponin steroid, flavonoid",
+    "cong_dung": "Tiêu viêm, tiêu đờm, thanh nhiệt.",
+    "image": "images/thien_mon_dong.png"
+  },
+  {
+    "stt": "13",
+    "ten_viet_nam": "Thổ phục linh",
+    "ten_khoa_hoc": "Smilax glabra",
+    "ho_thuc_vat": "Smilacaceae",
+    "bo_phan": "Thân rễ",
+    "thanh_phan": "Saponin, flavonoid",
+    "cong_dung": "Kích thích tiêu hoá, trị tiêu chảy, thấp khớp.",
+    "image": "images/tho_phuc_linh.png"
+  },
+  {
+    "stt": "14",
+    "ten_viet_nam": "Thông thảo",
+    "ten_khoa_hoc": "Tetrapanax papyrifer",
+    "ho_thuc_vat": "Araliaceae",
+    "bo_phan": "Lõi thân",
+    "thanh_phan": "Saponin triterpene, polysaccharide",
+    "cong_dung": "Thông tiểu, chữa sốt, lợi sữa.",
+    "image": "images/thong_thao.png"
+  },
+  {
+    "stt": "15",
+    "ten_viet_nam": "Trạch tả",
+    "ten_khoa_hoc": "Alisma plantago-aquatica",
+    "ho_thuc_vat": "Alismataceae",
+    "bo_phan": "Thân rễ",
+    "thanh_phan": "Terpenoid, polysaccharide",
+    "cong_dung": "Trị phù thũng, tiểu buốt, tiểu gắt.",
+    "image": "images/trach_ta.png"
+  },
+  {
+    "stt": "16",
+    "ten_viet_nam": "Viễn chí",
+    "ten_khoa_hoc": "Polygala tenuifolia",
+    "ho_thuc_vat": "Polygalaceae",
+    "bo_phan": "Rễ",
+    "thanh_phan": "Saponin triterpenoid, xanthone",
+    "cong_dung": "Chữa ho, viêm phế quản, mất ngủ.",
+    "image": "images/vien_chi.png"
+  },
+  {
+    "stt": "17",
+    "ten_viet_nam": "Bạch quả",
+    "ten_khoa_hoc": "Ginkgo biloba",
+    "ho_thuc_vat": "Ginkgoaceae",
+    "bo_phan": "Lá, hạt",
+    "thanh_phan": "Flavonoid (ginketin), acid béo",
+    "cong_dung": "Chống oxy hoá, cải thiện trí nhớ.",
+    "image": "images/bach_qua.png"
+  },
+  {
+    "stt": "18",
+    "ten_viet_nam": "Cốt toái bổ",
+    "ten_khoa_hoc": "Drynaria rossii",
+    "ho_thuc_vat": "Polypodiaceae",
+    "bo_phan": "Thân rễ",
+    "thanh_phan": "Flavonoid, tinh bột",
+    "cong_dung": "Chữa đau lưng, đau xương.",
+    "image": "images/cot_toai_bo.png"
+  },
+  {
+    "stt": "19",
+    "ten_viet_nam": "Hoàng cầm",
+    "ten_khoa_hoc": "Scutellaria baicalensis",
+    "ho_thuc_vat": "Lamiaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Flavonoid (baicalin), polysaccharide",
+    "cong_dung": "Chữa sốt cao kéo dài, viêm phổi, viêm phế quản.",
+    "image": "images/hoang_cam.png"
+  },
+  {
+    "stt": "20",
+    "ten_viet_nam": "Hồng hoa",
+    "ten_khoa_hoc": "Carthamus tinctorius",
+    "ho_thuc_vat": "Asteraceae",
+    "bo_phan": "Hoa",
+    "thanh_phan": "Flavonoid (carthamin), tinh dầu",
+    "cong_dung": "Hoạt huyết, thông kinh, giảm đau.",
+    "image": "images/hong_hoa.png"
+  },
+  {
+    "stt": "21",
+    "ten_viet_nam": "Kim tiền thảo",
+    "ten_khoa_hoc": "Desmodium styracifolium",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Toàn cây",
+    "thanh_phan": "Flavonoid, triterpene",
+    "cong_dung": "Trị sỏi niệu, sỏi mật, viêm gan, vàng da.",
+    "image": "images/kim_tien_thao.png"
+  },
+  {
+    "stt": "22",
+    "ten_viet_nam": "Núc nác",
+    "ten_khoa_hoc": "Oroxylum indicum",
+    "ho_thuc_vat": "Bignoniaceae",
+    "bo_phan": "Vỏ thân, hạt",
+    "thanh_phan": "Flavonoid, isoflavonoid, chất béo",
+    "cong_dung": "Chữa dị ứng, ho lâu ngày.",
+    "image": "images/nuc_nac.png"
+  },
+  {
+    "stt": "23",
+    "ten_viet_nam": "Sơn tra",
+    "ten_khoa_hoc": "Malus doumeri",
+    "ho_thuc_vat": "Rosaceae",
+    "bo_phan": "Quả",
+    "thanh_phan": "Tannin, acid hữu cơ",
+    "cong_dung": "Thuốc tim mạch, an thần, giảm đau.",
+    "image": "images/son_tra.png"
+  },
+  {
+    "stt": "24",
+    "ten_viet_nam": "Tô mộc",
+    "ten_khoa_hoc": "Caesalpinia sappan",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Gỗ",
+    "thanh_phan": "Flavonoid, neoflavonoid",
+    "cong_dung": "Thuốc săn da, điều kinh, kinh nguyệt không đều.",
+    "image": "images/to_moc.png"
+  },
+  {
+    "stt": "25",
+    "ten_viet_nam": "Hoè",
+    "ten_khoa_hoc": "Styphnolobium japonicum",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Nụ hoa, hoa",
+    "thanh_phan": "Flavonoid (rutin), saponin",
+    "cong_dung": "Phòng xơ vữa động mạch, chống dị ứng, thấp khớp.",
+    "image": "images/hoe.png"
+  },
+  {
+    "stt": "26",
+    "ten_viet_nam": "Sắn dây",
+    "ten_khoa_hoc": "Caesalpinia sappan",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Isoflavon, tinh bột",
+    "cong_dung": "Chữa sốt, thanh nhiệt, giải cảm.",
+    "image": "images/san_day.png"
+  },
+  {
+    "stt": "27",
+    "ten_viet_nam": "Kim ngân",
+    "ten_khoa_hoc": "Lonicera japonica",
+    "ho_thuc_vat": "Caprifoliaceae",
+    "bo_phan": "Hoa sắp nở, cành lá",
+    "thanh_phan": "Flavonoid, acid phenolic",
+    "cong_dung": "Thanh nhiệt, giải độc, kháng viêm.",
+    "image": "images/kim_ngan.png"
+  },
+  {
+    "stt": "28",
+    "ten_viet_nam": "Rẻ quạt (xạ can)",
+    "ten_khoa_hoc": "Iris domestica",
+    "ho_thuc_vat": "Iridaceae",
+    "bo_phan": "Thân rễ",
+    "thanh_phan": "Flavonoid, isoflavonoid",
+    "cong_dung": "Chữa viêm họng, sốt, ho nhiều đờm.",
+    "image": "images/re_quat_xa_can.png"
+  },
+  {
+    "stt": "29",
+    "ten_viet_nam": "Ba kích",
+    "ten_khoa_hoc": "Morinda officinalis",
+    "ho_thuc_vat": "Rubiaceae",
+    "bo_phan": "Rễ",
+    "thanh_phan": "Anthraquinon, iridoid",
+    "cong_dung": "Chữa loãng xương, liệt dương.",
+    "image": "images/ba_kich.png"
+  },
+  {
+    "stt": "30",
+    "ten_viet_nam": "Cốt khí củ",
+    "ten_khoa_hoc": "Reynoutria japonica",
+    "ho_thuc_vat": "Polygonaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Anthraglycoside (emodin), stilben",
+    "cong_dung": "Chữa tê thấp, đau nhức, chướng bụng.",
+    "image": "images/cot_khi_cu.png"
+  },
+  {
+    "stt": "31",
+    "ten_viet_nam": "Đại hoàng",
+    "ten_khoa_hoc": "Rheum palmatum (sp.)",
+    "ho_thuc_vat": "Polygonaceae",
+    "bo_phan": "Thân rễ",
+    "thanh_phan": "Anthraquinon (rhein), tannin",
+    "cong_dung": "Chữa táo bón, ợ nóng, đau dạ dày.",
+    "image": "images/dai_hoang.png"
+  },
+  {
+    "stt": "32",
+    "ten_viet_nam": "Hà thủ ô đỏ",
+    "ten_khoa_hoc": "Reynoutria multiflora",
+    "ho_thuc_vat": "Polygonaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Anthraglycoside (emodin), tannin",
+    "cong_dung": "Chữa thận suy, gan yếu, ngủ kém.",
+    "image": "images/ha_thu_o_do.png"
+  },
+  {
+    "stt": "33",
+    "ten_viet_nam": "Lô hội",
+    "ten_khoa_hoc": "Aloe vera",
+    "ho_thuc_vat": "Xanthorrhoeaceae",
+    "bo_phan": "Nhựa, thịt lá tươi",
+    "thanh_phan": "Anthraglycoside (aloin), acid phenolic",
+    "cong_dung": "Trợ tiêu, nhuận tràng.",
+    "image": "images/lo_hoi.png"
+  },
+  {
+    "stt": "34",
+    "ten_viet_nam": "Nhàu",
+    "ten_khoa_hoc": "Morinda citrifolia",
+    "ho_thuc_vat": "Rubiaceae",
+    "bo_phan": "Rễ, quả",
+    "thanh_phan": "Anthraglycoside, napthoquinone",
+    "cong_dung": "Nhuận tràng nhẹ, hạ huyết áp.",
+    "image": "images/nhau.png"
+  },
+  {
+    "stt": "35",
+    "ten_viet_nam": "Phan tả (diệp)",
+    "ten_khoa_hoc": "Senna alexandrina",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Lá chét",
+    "thanh_phan": "Anthraglycoside, flavonoid",
+    "cong_dung": "Chữa táo bón, ăn không tiêu, đầy bụng.",
+    "image": "images/phan_ta_diep.png"
+  },
+  {
+    "stt": "36",
+    "ten_viet_nam": "Thảo quyết minh",
+    "ten_khoa_hoc": "Senna tora",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Hạt",
+    "thanh_phan": "Anthraoid (emodin), chất béo",
+    "cong_dung": "Điều trị cao huyết áp, mất ngủ, táo bón.",
+    "image": "images/thao_quyet_minh.png"
+  },
+  {
+    "stt": "37",
+    "ten_viet_nam": "Sâm đại hành",
+    "ten_khoa_hoc": "Eleutherine bulbosa",
+    "ho_thuc_vat": "Iridaceae",
+    "bo_phan": "Thân hành",
+    "thanh_phan": "Napthoquinone (eleutherin)",
+    "cong_dung": "Chữa ho gà, ho ra máu, nhức đầu.",
+    "image": "images/sam_dai_hanh.png"
+  },
+  {
+    "stt": "38",
+    "ten_viet_nam": "Kha tử",
+    "ten_khoa_hoc": "Terminalia chebula",
+    "ho_thuc_vat": "Combretaceae",
+    "bo_phan": "Quả",
+    "thanh_phan": "Tannin, terpenoid",
+    "cong_dung": "Trị tiêu chảy, ho lâu ngày.",
+    "image": "images/kha_tu.png"
+  },
+  {
+    "stt": "39",
+    "ten_viet_nam": "Keo giậu",
+    "ten_khoa_hoc": "Leucaena leucocephala",
+    "ho_thuc_vat": "Fabaceae",
+    "bo_phan": "Hạt",
+    "thanh_phan": "Tannin, tocopherol",
+    "cong_dung": "Trị giun.",
+    "image": "images/keo_giau.png"
+  },
+  {
+    "stt": "40",
+    "ten_viet_nam": "Trâm bầu",
+    "ten_khoa_hoc": "Combretum quadrangulare",
+    "ho_thuc_vat": "Combretaceae",
+    "bo_phan": "Hạt",
+    "thanh_phan": "Tannin, chất béo",
+    "cong_dung": "Trị giun sán, tiêu chảy, viêm gan.",
+    "image": "images/tram_bau.png"
+  },
+  {
+    "stt": "41",
+    "ten_viet_nam": "Ngũ bội tử",
+    "ten_khoa_hoc": "Galla chinensis",
+    "ho_thuc_vat": "Anacardiaceae",
+    "bo_phan": "Tổ sâu",
+    "thanh_phan": "Tannin pyrogallic",
+    "cong_dung": "Chữa tiêu chảy, kiết lị, loét miệng.",
+    "image": "images/ngu_boi_tu.png"
+  },
+  {
+    "stt": "42",
+    "ten_viet_nam": "Bạch chỉ",
+    "ten_khoa_hoc": "Angelica dahurica",
+    "ho_thuc_vat": "Apiaceae",
+    "bo_phan": "Rễ",
+    "thanh_phan": "Coumarin, tinh dầu",
+    "cong_dung": "Chữa nhức đầu, ngạt mũi.",
+    "image": "images/bach_chi.png"
+  },
+  {
+    "stt": "43",
+    "ten_viet_nam": "Mù u",
+    "ten_khoa_hoc": "Calophyllum inophyllum",
+    "ho_thuc_vat": "Clusiaceae",
+    "bo_phan": "Hạt, dầu, nhựa",
+    "thanh_phan": "Coumarin, dầu béo",
+    "cong_dung": "Trị ghẻ lở, bỏng, đắp mụn nhọt.",
+    "image": "images/mu_u.png"
+  },
+  {
+    "stt": "44",
+    "ten_viet_nam": "Huyền sâm",
+    "ten_khoa_hoc": "Scrophularia ningpoensis",
+    "ho_thuc_vat": "Scrophulariaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Iridoid, tinh dầu, acid béo",
+    "cong_dung": "Giải nhiệt, tiêu viêm, kháng khuẩn.",
+    "image": "images/huyen_sam.png"
+  },
+  {
+    "stt": "45",
+    "ten_viet_nam": "Địa hoàng",
+    "ten_khoa_hoc": "Rehmannia glutinosa",
+    "ho_thuc_vat": "Scrophulariaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Iridoid glycoside, ionon glycoside",
+    "cong_dung": "Chữa thiếu máu, suy nhược cơ thể, rong kinh.",
+    "image": "images/dia_hoang.png"
+  },
+  {
+    "stt": "46",
+    "ten_viet_nam": "Đỗ trọng",
+    "ten_khoa_hoc": "Eucommia ulmoides",
+    "ho_thuc_vat": "Eucommiaceae",
+    "bo_phan": "Vỏ cây",
+    "thanh_phan": "Iridoid glycoside, acid phenolic",
+    "cong_dung": "Trị thận hư, đau lưng, phong thấp.",
+    "image": "images/do_trong.png"
+  },
+  {
+    "stt": "47",
+    "ten_viet_nam": "Dành dành",
+    "ten_khoa_hoc": "Gardenia jasminoides",
+    "ho_thuc_vat": "Rubiaceae",
+    "bo_phan": "Quả, lá",
+    "thanh_phan": "Iridoid glycoside, carotenoid",
+    "cong_dung": "Thanh nhiệt, giải độc.",
+    "image": "images/danh_danh.png"
+  },
+  {
+    "stt": "48",
+    "ten_viet_nam": "Đảng sâm",
+    "ten_khoa_hoc": "Codonopsis javanica",
+    "ho_thuc_vat": "Campanulaceae",
+    "bo_phan": "Rễ",
+    "thanh_phan": "Đường, tinh dầu, chất béo",
+    "cong_dung": "Chữa suy nhược, kém ăn, rong huyết.",
+    "image": "images/dang_sam.png"
+  },
+  {
+    "stt": "49",
+    "ten_viet_nam": "Cẩu tích",
+    "ten_khoa_hoc": "Cibotium barometz",
+    "ho_thuc_vat": "Cibotiaceae",
+    "bo_phan": "Thân rễ",
+    "thanh_phan": "Tinh bột, sterol",
+    "cong_dung": "Chữa thấp khớp, đau lưng.",
+    "image": "images/cau_tich.png"
+  },
+  {
+    "stt": "50",
+    "ten_viet_nam": "Sâm bố chính",
+    "ten_khoa_hoc": "Abelmoschus sagittifolius",
+    "ho_thuc_vat": "Malvaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Chất nhày, coumarin",
+    "cong_dung": "Chữa suy nhược cơ thể, kém ăn ngủ.",
+    "image": "images/sam_bo_chinh.png"
+  },
+  {
+    "stt": "51",
+    "ten_viet_nam": "Ý dĩ",
+    "ten_khoa_hoc": "Coix lacryma-jobi",
+    "ho_thuc_vat": "Poaceae",
+    "bo_phan": "Nhân hạt",
+    "thanh_phan": "Tinh bột, protein, dầu béo",
+    "cong_dung": "Bổ phổi, bồi dưỡng cơ thể.",
+    "image": "images/y_di.png"
+  },
+  {
+    "stt": "52",
+    "ten_viet_nam": "Hoài sơn",
+    "ten_khoa_hoc": "Dioscorea hamiltonii",
+    "ho_thuc_vat": "Dioscoreaceae",
+    "bo_phan": "Rễ củ",
+    "thanh_phan": "Tinh bột, acid hữu cơ",
+    "cong_dung": "Hạ nhiệt, chữa ăn không tiêu.",
+    "image": "images/hoai_son.png"
+  },
+  {
+    "stt": "53",
+    "ten_viet_nam": "Mạch nha",
+    "ten_khoa_hoc": "Hordeum vulgare",
+    "ho_thuc_vat": "Poaceae",
+    "bo_phan": "Hạt, mạch nha",
+    "thanh_phan": "Tinh bột, protein",
+    "cong_dung": "Kích thích tiêu hoá, chữa ăn kém tiêu.",
+    "image": "images/mach_nha.png"
+  },
+  {
+    "stt": "54",
+    "ten_viet_nam": "Đào nhân",
+    "ten_khoa_hoc": "Prunus persica",
+    "ho_thuc_vat": "Rosaceae",
+    "bo_phan": "Nhân hạt",
+    "thanh_phan": "Dầu béo, tinh dầu",
+    "cong_dung": "Chữa ho, điều kinh.",
+    "image": "images/dao_nhan.png"
+  },
+  {
+    "stt": "55",
+    "ten_viet_nam": "Sử quân tử",
+    "ten_khoa_hoc": "Combretum indicum",
+    "ho_thuc_vat": "Combretaceae",
+    "bo_phan": "Hạt",
+    "thanh_phan": "Dầu béo, flavonoid",
+    "cong_dung": "Tẩy giun, trị nhức răng.",
+    "image": "images/su_quan_tu.png"
+  },
+  {
+    "stt": "56",
+    "ten_viet_nam": "Bạch cập",
+    "ten_khoa_hoc": "Bletilla striata",
+    "ho_thuc_vat": "Orchidaceae",
+    "bo_phan": "Thân rễ",
+    "thanh_phan": "Dẫn xuất bibenzyl, phenanthren",
+    "cong_dung": "Chữa lao phổi, ho ra máu.",
+    "image": "images/bach_cap.png"
+  },
+  {
+    "stt": "57",
+    "ten_viet_nam": "Câu kỷ tử",
+    "ten_khoa_hoc": "Lycium barbarum (L. chinense)",
+    "ho_thuc_vat": "Solanaceae",
+    "bo_phan": "Quả, rễ",
+    "thanh_phan": "Tinh dầu, carotenoid, betain",
+    "cong_dung": "Chữa suy yếu cơ thể, giải nhiệt.",
+    "image": "images/cau_ky_tu.png"
+  },
+  {
+    "stt": "58",
+    "ten_viet_nam": "Đan sâm",
+    "ten_khoa_hoc": "Salvia miltiorrhiza",
+    "ho_thuc_vat": "Lamiaceae",
+    "bo_phan": "Rễ, thân rễ",
+    "thanh_phan": "Diterpenoid, polyphenol",
+    "cong_dung": "Trị đau thắt ngực, rong kinh.",
+    "image": "images/dan_sam.png"
+  },
+  {
+    "stt": "59",
+    "ten_viet_nam": "Khiếm thực",
+    "ten_khoa_hoc": "Euryale ferox",
+    "ho_thuc_vat": "Nymphaeaceae",
+    "bo_phan": "Hạt",
+    "thanh_phan": "Protein, carbohydrate, vitamin C",
+    "cong_dung": "Trấn tĩnh trong đau nhức, chữa di tinh.",
+    "image": "images/khiem_thuc.png"
+  },
+  {
+    "stt": "60",
+    "ten_viet_nam": "Ngũ vị",
+    "ten_khoa_hoc": "Schisandra chinensis",
+    "ho_thuc_vat": "Schisandraceae",
+    "bo_phan": "Quả",
+    "thanh_phan": "Lignan, acid hữu cơ",
+    "cong_dung": "Trị viêm gan, hen suyễn, mồ hôi trộm.",
+    "image": "images/ngu_vi.png"
+  }
+]
